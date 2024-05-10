@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "OpenAI Chat Interface",
+    "description": "React Expo app that provides a mobile interface to the Openai API",
+    "slug": "openai-chat-interface",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/openAI.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ggeary3.openaichatinterface"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b65e70e6-404c-4a49-9975-ac793241e469"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/b65e70e6-404c-4a49-9975-ac793241e469"
+    }
+  }
+}
