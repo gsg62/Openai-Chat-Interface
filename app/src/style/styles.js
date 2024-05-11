@@ -7,6 +7,11 @@ const styles = StyleSheet.create({
     padding: 10,
     height: "100%",
   },
+  messageContainer: {
+    padding: 10,
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
   titleText: {
     marginTop: 40,
     fontSize: 24,

@@ -8,9 +8,8 @@ export const useOpenaiApi = () => {
   useEffect(() => {
     if (messages.length) {
       const lastMessageSource = messages[messages.length - 1].role;
-      console.log("lastMessageSource:", lastMessageSource);
+      // only send message to api if last added was from user
       if (lastMessageSource == "user") {
-        console.log("call api");
         sendMessage();
       }
     }
@@ -20,11 +19,9 @@ export const useOpenaiApi = () => {
     setLoading(true);
     const body = { messages: messages };
     try {
-      console.log("api call made");
       openaiApi.post("/chat", body).then((response) => {
         const messageFromApi = response.data.body.choices[0].message;
-        console.log("response from api: ", messageFromApi);
-        setMessages([...messages, messageFromApi]);
+        setMessages((prev) => [...prev, messageFromApi]);
         setLoading(false);
       });
     } catch (error) {
@@ -46,5 +43,5 @@ export const useOpenaiApi = () => {
       throw error;
     }
   }, []);
-  return { loading, messages, setMessages, sendMessage, testEndpoint };
+  return { loading, messages, setMessages, testEndpoint };
 };

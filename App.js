@@ -4,9 +4,7 @@ import {
   setJSExceptionHandler,
   setNativeExceptionHandler,
 } from "react-native-exception-handler";
-import { RealmProvider } from "@realm/react";
 import HomeScreen from "./app/src/components/Home/HomeScreen";
-// import JokeModel from "./app/src/models/jokeModel";
 import ErrorScreen from "./app/src/components/Error/ErrorScreen";
 import {
   handleJSErrorForErrorBoundary,
@@ -25,11 +23,9 @@ export default function App() {
       onError={handleJSErrorForErrorBoundary}
       FallbackComponent={ErrorScreen}
     >
-      {/* <RealmProvider schema={[JokeModel]}> */}
-        <ToastProvider>
-          <HomeScreen />
-        </ToastProvider>
-      {/* </RealmProvider> */}
+      <ToastProvider>
+        <HomeScreen />
+      </ToastProvider>
     </ErrorBoundary>
   );
 }

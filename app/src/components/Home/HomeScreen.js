@@ -1,22 +1,25 @@
 import { Button, Text, TextInput, View } from "react-native";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import styles from "../../style/styles";
 import { useOpenaiApi } from "../../hooks/useOpenaiApi";
+import Messages from "../Messages/Messages";
 
 const HomeScreen = () => {
   const [newMessage, setNewMessage] = useState();
-  const { messages, sendMessage, testEndpoint, setMessages } = useOpenaiApi();
+  const { messages, setMessages, testEndpoint } = useOpenaiApi();
 
   const handlePress = () => {
     const userMessage = {
       role: "user",
       content: newMessage,
     };
-    setMessages([...messages, userMessage]);
-    // sendMessage();
+    setMessages((prev) => [...prev, userMessage]);
     // sendMessage();
     // testEndpoint();
+  };
+
+  const handleTest = () => {
+    console.log("messages: ", messages);
   };
 
   return (
@@ -29,9 +32,9 @@ const HomeScreen = () => {
         onChangeText={(newText) => setNewMessage(newText)}
       />
       <Button title="send" onPress={handlePress} />
-      <Text>response: </Text>
+      <Messages messages={messages} />
       <View style={styles.menuButtonContainer}>
-        {/* <Button title="Enter App" onPress={() => navigation.navigate("Menu")} /> */}
+        <Button title="test button" onPress={handleTest} />
       </View>
     </View>
   );
